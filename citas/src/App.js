@@ -2,7 +2,7 @@ import React from 'react';
 
 function App() {
   return (
-    <h1>Admin de pacientes</h1>
+    <h1>Administrador de pacientes</h1>
   );
 }
 
