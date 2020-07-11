@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Form = () => {
 
   //State appointments
-
+  const [appointments, setAppointment] = useState({
+    patient: '',
+    speciality: '',
+    date: '',
+    time: '',
+    symptoms: ''
+  })
 
   
     return ( 
