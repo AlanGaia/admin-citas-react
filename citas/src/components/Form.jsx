@@ -1,73 +1,90 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Form = () => {
-
   //State appointments
-  const [appointments, setAppointment] = useState({
-    patient: '',
-    speciality: '',
-    date: '',
-    time: '',
-    symptoms: ''
+  const [appointment, setAppointment] = useState({
+    patient: "",
+    speciality: "",
+    date: "",
+    time: "",
+    symptoms: "",
   });
 
+  //Update the input form values and save it when input form change
+  const handleChange = (e) => {
+    setAppointment({
+      ...appointment,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const handleChange = () => {
-    console.log('Escribiendo');
-    
-  }
+  //Extract Values
+  const { patient, speciality, date, time, symptoms } = appointment;
 
+  //Handle Submit Form
+  const handleSubmit = e => {
+    e.preventDefault();
+    alert('Enviar form')
+  };
 
-    return ( 
-        <>
-        <h2>Solicitar Turno</h2>
+  //Main component
+  return (
+    <>
+      <h2>Solicitar Turno</h2>
 
-        <form>
-          <label>Nombre del Paciente</label>
-          <input 
-            type="text"
-            name="patient"
-            className="u-full-width"
-            placeholder="Ej: Juan"
-            onChange={handleChange}
-          />
-          
-          <label>Especialidad Médica</label>
-          <input 
-            type="text"
-            name="speciality"
-            className="u-full-width"
-            placeholder="Ej: Traumatología"
-          />
+      <form onSubmit={handleSubmit}>
+        <label>Nombre del Paciente</label>
+        <input
+          type="text"
+          name="patient"
+          className="u-full-width"
+          placeholder="Ej: Juan"
+          onChange={handleChange}
+          value={patient}
+        />
 
-          <label>Fecha</label>
-          <input 
-            type="date"
-            name="date"
-            className="u-full-width"
-          />
+        <label>Especialidad Médica</label>
+        <input
+          type="text"
+          name="speciality"
+          className="u-full-width"
+          placeholder="Ej: Traumatología"
+          onChange={handleChange}
+          value={speciality}
+        />
 
-          <label>Hora</label>
-          <input 
-            type="time"
-            name="time"
-            className="u-full-width"
-          />
+        <label>Fecha</label>
+        <input
+          type="date"
+          name="date"
+          className="u-full-width"
+          onChange={handleChange}
+          value={date}
+        />
 
-          <label>Sintomas</label>
-          <textarea 
-            name="symptoms"
-            className="u-full-width">
+        <label>Hora</label>
+        <input
+          type="time"
+          name="time"
+          className="u-full-width"
+          onChange={handleChange}
+          value={time}
+        />
 
-          </textarea>
+        <label>Sintomas</label>
+        <textarea
+          name="symptoms"
+          className="u-full-width"
+          onChange={handleChange}
+          value={symptoms}
+        ></textarea>
 
-          <button
-            type="submit"
-            className="u-full-width button-primary"
-          >Agendar Cita</button>
-        </form>
-        </>
-     );
-}
- 
+        <button type="submit" className="u-full-width button-primary">
+          Agendar Cita
+        </button>
+      </form>
+    </>
+  );
+};
+
 export default Form;
