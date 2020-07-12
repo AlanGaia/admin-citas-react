@@ -9,9 +9,15 @@ const Form = () => {
     date: '',
     time: '',
     symptoms: ''
-  })
+  });
 
-  
+
+  const handleChange = () => {
+    console.log('Escribiendo');
+    
+  }
+
+
     return ( 
         <>
         <h2>Solicitar Turno</h2>
@@ -23,6 +29,7 @@ const Form = () => {
             name="patient"
             className="u-full-width"
             placeholder="Ej: Juan"
+            onChange={handleChange}
           />
           
           <label>Especialidad Médica</label>
