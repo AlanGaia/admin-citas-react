@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {v4} from 'uuid';
 
 const Form = () => {
 
@@ -40,6 +41,15 @@ const Form = () => {
         setError(true);
         return
       }
+    
+    //Delete Error message
+    setError(false);
+
+    //Assign appointment id
+    appointment.id = v4();
+    console.log(appointment);
+    
+    
 
     //Add appointment
     console.log('Cita agregada');
