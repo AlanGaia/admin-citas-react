@@ -1,7 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Form from './components/Form';
 
 function App() {
+
+  //array of appointments
+  const [appointments, setAppointments] = useState([]);
+
+
+  //Read array of appointments and append a new one to the list
+  const appendAppointment = appointment => {
+    setAppointments([
+      ...appointments, //copy the data of array
+      appointment // Add the new one to the list
+    ])
+  }
+
   return (
     <>
       <h1>Administrador de pacientes</h1>
@@ -9,7 +22,7 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="one-half column">
-            <Form/>
+            <Form appendAppointment={appendAppointment}/>
           </div>
 
           <div className="one-half column">
