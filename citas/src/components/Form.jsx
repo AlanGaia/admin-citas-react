@@ -24,7 +24,16 @@ const Form = () => {
   //Handle Submit Form
   const handleSubmit = e => {
     e.preventDefault();
-    alert('Enviar form')
+
+    //Validate 
+    if(patient.trim() === ''){
+      console.log('Nombre del paciente no puede ser vacio');
+      return
+    }
+
+    //Add appointment
+    console.log('Cita agregada');
+    
   };
 
   //Main component
