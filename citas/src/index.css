@@ -83,8 +83,10 @@ input[type="time"] {
 }
 
 .alerta-error {
-  background-color: white;
-  color: red;
+  background-color: rgb(252, 172, 179);
+  color: rgb(247, 37, 100);
+  border: #fd457c 2px solid;
+  border-radius: 8px;
   padding: 1rem;
   font-size: 2rem;
   text-transform: uppercase;

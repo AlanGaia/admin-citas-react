@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Form = () => {
+
   //State appointments
   const [appointment, setAppointment] = useState({
     patient: "",
@@ -9,6 +10,9 @@ const Form = () => {
     time: "",
     symptoms: "",
   });
+  
+  //State Error
+  const [error, setError] = useState(false)
 
   //Update the input form values and save it when input form change
   const handleChange = (e) => {
@@ -26,10 +30,16 @@ const Form = () => {
     e.preventDefault();
 
     //Validate 
-    if(patient.trim() === ''){
-      console.log('Nombre del paciente no puede ser vacio');
-      return
-    }
+    if(
+      patient.trim() === ''||
+      speciality.trim() === ''||
+      date.trim() === ''||
+      time.trim() === ''||
+      symptoms.trim() === ''
+      ){
+        setError(true);
+        return
+      }
 
     //Add appointment
     console.log('Cita agregada');
@@ -40,6 +50,8 @@ const Form = () => {
   return (
     <>
       <h2>Solicitar Turno</h2>
+
+      {error ? <legend className="alerta-error">Completar todos los campos</legend> : null }
 
       <form onSubmit={handleSubmit}>
         <label>Nombre del Paciente</label>
