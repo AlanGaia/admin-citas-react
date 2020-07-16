@@ -12,7 +12,7 @@ function App() {
     setAppointments([
       ...appointments, //copy the data of array
       appointment // Add the new one to the list
-    ])
+    ]);
   }
 
   return (

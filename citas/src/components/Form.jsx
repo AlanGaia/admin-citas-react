@@ -51,6 +51,14 @@ const Form = ({appendAppointment}) => {
     //Add appointment
     appendAppointment(appointment);
     
+    //Form Reset
+    setAppointment({
+      patient: "",
+      speciality: "",
+      date: "",
+      time: "",
+      symptoms: "",
+    })
   };
 
   //Main component
