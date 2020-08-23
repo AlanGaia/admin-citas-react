@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {v4} from 'uuid';
+import propTypes from 'prop-types';
 
 const Form = ({appendAppointment}) => {
 
@@ -122,5 +123,10 @@ const Form = ({appendAppointment}) => {
     </>
   );
 };
+
+Form.propTypes = {
+  appendAppointment: propTypes.func.isRequired
+}
+
 
 export default Form;

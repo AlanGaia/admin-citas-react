@@ -34,7 +34,7 @@ function App() {
     } else {
       localStorage.setItem('appointments', JSON.stringify([]));
     }
-  }, [appointments] );
+  }, [appointments, initialAppointments] );
 
 
   const appointmentTitle = appointments.length === 0 ? 'No hay citas agendadas' : 'Administra tus Citas';
